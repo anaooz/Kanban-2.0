@@ -9,7 +9,7 @@ Repositório pro projeto de Digital Business Enablement
   - Adicionar
   - Editar
   - Apagar
-- Participantse / Administradores
+- Participantes / Administradores
 
 ---
 
