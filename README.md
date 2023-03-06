@@ -15,6 +15,8 @@ Repositório pro projeto de Digital Business Enablement
 
 ### Cadastrar Quadro
 
+**Campos da requisição**
+
 `POST` api/quadro
 
 | campo | tipo | obrigatório | descrição
@@ -23,6 +25,8 @@ Repositório pro projeto de Digital Business Enablement
 |colaborador(es) | string | não | caso haja pessoas relacionadas à tarefa
 |data|data|sim| a data limite para realização da tarefa
 |cor |string |sim | o código de uma conta previamente cadastrada
+
+**Exemplo de corpo de requisição**
 
 ```js
 {
@@ -38,12 +42,16 @@ Repositório pro projeto de Digital Business Enablement
 | código | descrição
 |-|-
 | 201 | quadro cadastrada com sucesso
+| 400 | campos não preenchidos
 ---
 
 ### Detalhar Despesa
 
+**Campos da requisição**
+
 `GET` /api/quadro/{id}
 
+**Exemplo de corpo de requisição**
 ```js
 {
     valor: 'Exemplo de Nota',
