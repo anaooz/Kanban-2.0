@@ -6,10 +6,10 @@ Repositório pro projeto de Digital Business Enablement
 ## Endpoints
 
 - Quadro
-  - (Adicionar)[#adicionar-quadro]
-  - Editar
-  - Apagar
-  - Lista
+  - [Adicionar](#adicionar-quadro)
+  - [Editar](#editar-quadro)
+  - [Apagar](#apagar-quadro)
+  - [Lista](#lista-de-quadros)
 
 ---
 
@@ -45,7 +45,43 @@ Repositório pro projeto de Digital Business Enablement
 | 400 | campos não preenchidos
 ---
 
-### Detalhar Despesa
+### Editar Quadro
+
+`PUT` api/quadro/{id}
+
+**Exemplo de corpo de requisição**
+
+```js
+{
+  titulo: 'Exemplo de Nota 1.1',
+  colaborador: ['Mateus', 'Amanda', 'João'],
+  data: '06-03-2023',
+  cor: 'laranja'
+}
+```
+
+**Códigos de Resposta**
+
+| código | descrição
+|-|-
+| 202 | quadro alterado com sucesso
+| 400 | campos não preenchidos ou faltando
+| 404 | nenhum quadro com o id informado
+---
+
+### Apagar Quadro
+
+`DELETE` api/quadro/{id}
+
+**Códigos de Resposta**
+
+| código | descrição
+|-|-
+| 202 | quadro excluído com sucesso
+| 404 | nenhum quadro com o id informado
+---
+
+### Lista de Quadros
 
 **Campos da requisição**
 
