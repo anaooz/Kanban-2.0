@@ -6,14 +6,14 @@ Repositório pro projeto de Digital Business Enablement
 ## Endpoints
 
 - Quadro
-  - Adicionar
+  - (Adicionar)[#adicionar-quadro]
   - Editar
   - Apagar
-- Participantes / Administradores
+  - Lista
 
 ---
 
-### Cadastrar Quadro
+### Adicionar Quadro
 
 **Campos da requisição**
 
@@ -49,7 +49,7 @@ Repositório pro projeto de Digital Business Enablement
 
 **Campos da requisição**
 
-`GET` /api/quadro/{id}
+`GET` /api/quadro/lista
 
 **Exemplo de corpo de requisição**
 ```js
@@ -64,10 +64,17 @@ Repositório pro projeto de Digital Business Enablement
     cor: 'vermelho'
 }
 ```
-
+```js
+{
+    valor: 'Exemplo de Nota 2',
+    colaboradores: 'João Carlos Lima'
+    data: '01-03-2023',
+    cor: 'azul'
+}
+```
 **Códigos de Resposta**
 
 | código | descrição
 |-|-
 | 200 | dados retornados com sucesso
-| 404 | não existe quadro com o id informado
+| 404 | nenhum quadro encontrado
