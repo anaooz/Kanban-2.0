@@ -31,7 +31,7 @@ Repositório pro projeto de Digital Business Enablement
 ```js
 {
   titulo: 'Exemplo de Nota',
-  colaborador: ['Mateus', 'Amanda'],
+  colaborador: ['mateus@email.com', 'amanda@email.com'],
   data: '05-03-2023',
   cor: 'vermelho'
 }
@@ -54,7 +54,7 @@ Repositório pro projeto de Digital Business Enablement
 ```js
 {
   titulo: 'Exemplo de Nota 1.1',
-  colaborador: ['Mateus', 'Amanda', 'João'],
+  colaborador: ['mateus@email.com', 'amanda@email.com', 'joao@email.com'],
   data: '06-03-2023',
   cor: 'laranja'
 }
@@ -92,9 +92,9 @@ Repositório pro projeto de Digital Business Enablement
 {
     valor: 'Exemplo de Nota',
     colaboradores: [{
-		 colaborador: 'Mateus'
+		 colaborador: 'mateus@email.com'
 	}, {
-		 colaborador: 'Amanda'
+		 colaborador: 'amanda@email.com'
 	}],
     data: '05-03-2023',
     cor: 'vermelho'
