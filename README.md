@@ -5,6 +5,11 @@ Repositório pro projeto de Digital Business Enablement
 
 ## Endpoints
 
+- Usuário
+  - [Cadastrar](#cadastrar-usuário)
+  - [Editar](#editar-usuário)
+  - [Deletar](#deletar-usuário)
+
 - Quadro
   - [Adicionar](#adicionar-quadro)
   - [Editar](#editar-quadro)
@@ -12,12 +17,70 @@ Repositório pro projeto de Digital Business Enablement
   - [Lista](#lista-de-quadros)
 
 ---
-
-### Adicionar Quadro
+### Cadastrar Usuário
+`POST` /api/usuario/cadastrar
 
 **Campos da requisição**
 
+| Campo | Tipo | Obrigatório | Descrição | 
+|-------|------|-------------|-----------|
+| login |String|  Sim | Aqui o usuário deverá preencher o campo com o seu e-mail. | 
+| senha |String|  Sim | Aqui o usuário deverá preencher o campo com uma senha de 6 dígitos. | 
+
+ Corpo de requisição 
+
+```js
+{
+    login: 'brunasilva@email.com',
+    senha: '205478'
+}
+```
+
+ Códigos de resposta 
+| Código | Descrição | 
+|--------|------|
+|200|Dados retornados com sucesso|
+|400| Campos não preenchidos|
+
+---
+
+### Editar Usuário
+`PUT` /api/usuario/{id}/editar
+
+ **Corpo de requisição**
+
+```js
+{
+    login: 'brunasouza@email.com',
+    senha: '215579'
+}
+```
+
+ Códigos de resposta 
+| Código | Descrição | 
+|--------|------|
+|200|dados alterados com sucesso|
+|400|campos não preenchidos|
+|404|usuário não encontrado|
+
+---
+
+### Deletar Usuário
+`DELETE` /api/usuario/{id}/deletar
+
+ Códigos de resposta 
+| Código | Descrição | 
+|--------|------|
+|200|usuário excluído com sucesso|
+|404|usuário não encontrado|
+
+---
+
+### Adicionar Quadro
+
 `POST` api/quadro
+
+**Campos da requisição**
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|---
@@ -41,7 +104,7 @@ Repositório pro projeto de Digital Business Enablement
 
 | código | descrição
 |-|-
-| 201 | quadro cadastrada com sucesso
+| 201 | quadro cadastrado com sucesso
 | 400 | campos não preenchidos
 ---
 
