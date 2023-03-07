@@ -47,7 +47,7 @@ Repositório pro projeto de Digital Business Enablement
 
 ### Editar Quadro
 
-`PUT` api/quadro/{id}
+`PUT` api/quadro/{id}/atualizar
 
 **Exemplo de corpo de requisição**
 
@@ -71,7 +71,7 @@ Repositório pro projeto de Digital Business Enablement
 
 ### Apagar Quadro
 
-`DELETE` api/quadro/{id}
+`DELETE` api/quadro/{id}/excluir
 
 **Códigos de Resposta**
 
