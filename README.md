@@ -103,7 +103,7 @@ Repositório pro projeto de Digital Business Enablement
 ```js
 {
     valor: 'Exemplo de Nota 2',
-    colaboradores: 'João Carlos Lima'
+    colaboradores: 'joao@email.com'
     data: '01-03-2023',
     cor: 'azul'
 }
