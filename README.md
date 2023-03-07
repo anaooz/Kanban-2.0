@@ -8,7 +8,7 @@ Repositório pro projeto de Digital Business Enablement
 - Quadro
   - [Adicionar](#adicionar-quadro)
   - [Editar](#editar-quadro)
-  - [Apagar](#apagar-quadro)
+  - [Excluir](#excluir-quadro)
   - [Lista](#lista-de-quadros)
 
 ---
@@ -47,7 +47,7 @@ Repositório pro projeto de Digital Business Enablement
 
 ### Editar Quadro
 
-`PUT` api/quadro/{id}/atualizar
+`PUT` api/quadro/{id}/editar
 
 **Exemplo de corpo de requisição**
 
@@ -69,7 +69,7 @@ Repositório pro projeto de Digital Business Enablement
 | 404 | nenhum quadro com o id informado
 ---
 
-### Apagar Quadro
+### Excluir Quadro
 
 `DELETE` api/quadro/{id}/excluir
 
