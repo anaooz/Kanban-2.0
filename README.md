@@ -166,7 +166,7 @@ Repositório pro projeto de Digital Business Enablement
 ```js
 {
     valor: 'Exemplo de Nota 2',
-    colaboradores: 'joao@email.com'
+    colaboradores: 'joao@email.com',
     data: '01-03-2023',
     cor: 'azul'
 }
