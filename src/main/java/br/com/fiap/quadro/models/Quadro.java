@@ -3,6 +3,8 @@ package br.com.fiap.quadro.models;
 import java.time.LocalDate;
 
 public class Quadro {
+    private Long id;
+
     private String titulo; 
     private String colaboradores;
     private String cor;
@@ -13,6 +15,15 @@ public class Quadro {
         this.colaboradores = colaboradores;
         this.cor = cor;
         this.data = data;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitulo() {
