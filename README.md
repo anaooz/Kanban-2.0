@@ -52,7 +52,6 @@ Repositório pro projeto de Digital Business Enablement
 
 ```js
 {
-  id: 1,
   login: 'brunasouza@email.com',
   senha: '215579'
 }
@@ -98,11 +97,9 @@ Códigos de resposta
   titulo: 'Exemplo de Nota',
   usuario: [
       {
-        usuario_id: 1,
 		    login: 'mateus@email.com'
 	    },
       {
-        usuario_id: 2,
 		    login: 'amanda@email.com'
 	    }
   ],
@@ -130,15 +127,12 @@ Códigos de resposta
   titulo: 'Exemplo de Nota 1.1',
   usuario: [
       {
-        usuario_id: 1,
 		    login: 'mateus@email.com'
 	    },
       {
-        usuario_id: 2,
 		    login: 'amanda@email.com'
 	    },
       {
-        usuario_id: 3,
 		    login: 'joao@email.com'
       }
   ],
