@@ -31,7 +31,6 @@ Repositório pro projeto de Digital Business Enablement
 
 ```js
 {
-  id: 1,
   login: 'brunasilva@email.com',
   senha: '205478'
 }
