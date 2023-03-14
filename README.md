@@ -31,8 +31,9 @@ Repositório pro projeto de Digital Business Enablement
 
 ```js
 {
-    login: 'brunasilva@email.com',
-    senha: '205478'
+  id: 1,
+  login: 'brunasilva@email.com',
+  senha: '205478'
 }
 ```
 
@@ -51,8 +52,9 @@ Repositório pro projeto de Digital Business Enablement
 
 ```js
 {
-    login: 'brunasouza@email.com',
-    senha: '215579'
+  id: 1,
+  login: 'brunasouza@email.com',
+  senha: '215579'
 }
 ```
 
@@ -68,7 +70,7 @@ Repositório pro projeto de Digital Business Enablement
 ### Deletar Usuário
 `DELETE` /api/usuario/{id}
 
- Códigos de resposta 
+Códigos de resposta 
 | Código | Descrição | 
 |--------|------|
 |200|usuário excluído com sucesso|
@@ -85,7 +87,7 @@ Repositório pro projeto de Digital Business Enablement
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|---
 |titulo | string | sim | o título da nota
-|colaborador(es) | string | não | caso haja pessoas relacionadas à tarefa
+|usuário(s) | string | não | caso haja pessoas relacionadas à tarefa
 |data|data|sim| a data limite para realização da tarefa
 |cor |string |sim | o código de uma conta previamente cadastrada
 
@@ -94,7 +96,16 @@ Repositório pro projeto de Digital Business Enablement
 ```js
 {
   titulo: 'Exemplo de Nota',
-  colaborador: ['mateus@email.com', 'amanda@email.com'],
+  usuario: [
+      {
+        usuario_id: 1,
+		    login: 'mateus@email.com'
+	    },
+      {
+        usuario_id: 2,
+		    login: 'amanda@email.com'
+	    }
+  ],
   data: '05-03-2023',
   cor: 'vermelho'
 }
@@ -117,7 +128,20 @@ Repositório pro projeto de Digital Business Enablement
 ```js
 {
   titulo: 'Exemplo de Nota 1.1',
-  colaborador: ['mateus@email.com', 'amanda@email.com', 'joao@email.com'],
+  usuario: [
+      {
+        usuario_id: 1,
+		    login: 'mateus@email.com'
+	    },
+      {
+        usuario_id: 2,
+		    login: 'amanda@email.com'
+	    },
+      {
+        usuario_id: 3,
+		    login: 'joao@email.com'
+      }
+  ],
   data: '06-03-2023',
   cor: 'laranja'
 }
@@ -148,17 +172,22 @@ Repositório pro projeto de Digital Business Enablement
 
 **Campos da requisição**
 
-`GET` /api/quadro/lista
+`GET` /api/quadro
 
 **Exemplo de corpo de requisição**
 ```js
 {
     valor: 'Exemplo de Nota',
-    colaboradores: [{
-		 colaborador: 'mateus@email.com'
-	}, {
-		 colaborador: 'amanda@email.com'
-	}],
+    usuario: [
+      {
+        usuario_id: 1,
+		    login: 'mateus@email.com'
+	    },
+      {
+        usuario_id: 2,
+		    login: 'amanda@email.com'
+	    }
+  ],
     data: '05-03-2023',
     cor: 'vermelho'
 }
@@ -166,7 +195,10 @@ Repositório pro projeto de Digital Business Enablement
 ```js
 {
     valor: 'Exemplo de Nota 2',
-    colaboradores: 'joao@email.com',
+    usuario: {
+      usuario_id: 3,
+      login: 'joao@email.com'
+    },
     data: '01-03-2023',
     cor: 'azul'
 }
