@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Quadro {
     private Long id;
-//.
+
     private String titulo; 
     private String colaboradores;
     private String cor;

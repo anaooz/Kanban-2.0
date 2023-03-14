@@ -2,7 +2,7 @@ package br.com.fiap.quadro.models;
 
 public class Usuario {
     private Long id;
-//.
+
     private String login;
     private String senha;
     
