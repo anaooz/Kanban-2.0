@@ -31,7 +31,6 @@ Repositório pro projeto de Digital Business Enablement
 
 ```js
 {
-  id: 1,
   login: 'brunasilva@email.com',
   senha: '205478'
 }
@@ -52,7 +51,6 @@ Repositório pro projeto de Digital Business Enablement
 
 ```js
 {
-  id: 1,
   login: 'brunasouza@email.com',
   senha: '215579'
 }
@@ -98,13 +96,11 @@ Códigos de resposta
   titulo: 'Exemplo de Nota',
   usuario: [
       {
-        usuario_id: 1,
-		    login: 'mateus@email.com'
-	    },
+	login: 'mateus@email.com'
+      },
       {
-        usuario_id: 2,
-		    login: 'amanda@email.com'
-	    }
+	login: 'amanda@email.com'
+      }
   ],
   data: '05-03-2023',
   cor: 'vermelho'
@@ -130,16 +126,13 @@ Códigos de resposta
   titulo: 'Exemplo de Nota 1.1',
   usuario: [
       {
-        usuario_id: 1,
-		    login: 'mateus@email.com'
-	    },
+      	login: 'mateus@email.com'
+      },
       {
-        usuario_id: 2,
-		    login: 'amanda@email.com'
-	    },
+      	login: 'amanda@email.com'
+      },
       {
-        usuario_id: 3,
-		    login: 'joao@email.com'
+      	login: 'joao@email.com'
       }
   ],
   data: '06-03-2023',
@@ -181,12 +174,12 @@ Códigos de resposta
     usuario: [
       {
         usuario_id: 1,
-		    login: 'mateus@email.com'
-	    },
+	login: 'mateus@email.com'
+      },
       {
         usuario_id: 2,
-		    login: 'amanda@email.com'
-	    }
+	login: 'amanda@email.com'
+      }
   ],
     data: '05-03-2023',
     cor: 'vermelho'
