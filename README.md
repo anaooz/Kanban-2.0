@@ -18,7 +18,7 @@ Repositório pro projeto de Digital Business Enablement
 
 ---
 ### Cadastrar Usuário
-`POST` /api/usuario/cadastrar
+`POST` /api/usuario
 
 **Campos da requisição**
 
@@ -45,7 +45,7 @@ Repositório pro projeto de Digital Business Enablement
 ---
 
 ### Editar Usuário
-`PUT` /api/usuario/{id}/editar
+`PUT` /api/usuario/{id}
 
  **Corpo de requisição**
 
@@ -66,7 +66,7 @@ Repositório pro projeto de Digital Business Enablement
 ---
 
 ### Deletar Usuário
-`DELETE` /api/usuario/{id}/deletar
+`DELETE` /api/usuario/{id}
 
  Códigos de resposta 
 | Código | Descrição | 
@@ -110,7 +110,7 @@ Repositório pro projeto de Digital Business Enablement
 
 ### Editar Quadro
 
-`PUT` api/quadro/{id}/editar
+`PUT` api/quadro/{id}
 
 **Exemplo de corpo de requisição**
 
@@ -134,7 +134,7 @@ Repositório pro projeto de Digital Business Enablement
 
 ### Excluir Quadro
 
-`DELETE` api/quadro/{id}/excluir
+`DELETE` api/quadro/{id}
 
 **Códigos de Resposta**
 
