@@ -96,19 +96,11 @@ Códigos de resposta
   titulo: 'Exemplo de Nota',
   usuario: [
       {
-<<<<<<< HEAD
 		    login: 'mateus@email.com'
 	    },
       {
 		    login: 'amanda@email.com'
 	    }
-=======
-	login: 'mateus@email.com'
-      },
-      {
-	login: 'amanda@email.com'
-      }
->>>>>>> 6661dd2ff84befcc9a7b28b46995df55dbb4efec
   ],
   data: '05-03-2023',
   cor: 'vermelho'
@@ -134,15 +126,6 @@ Códigos de resposta
   titulo: 'Exemplo de Nota 1.1',
   usuario: [
       {
-<<<<<<< HEAD
-		    login: 'mateus@email.com'
-	    },
-      {
-		    login: 'amanda@email.com'
-	    },
-      {
-		    login: 'joao@email.com'
-=======
       	login: 'mateus@email.com'
       },
       {
@@ -150,7 +133,6 @@ Códigos de resposta
       },
       {
       	login: 'joao@email.com'
->>>>>>> 6661dd2ff84befcc9a7b28b46995df55dbb4efec
       }
   ],
   data: '06-03-2023',
