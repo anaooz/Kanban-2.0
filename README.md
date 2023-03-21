@@ -1,4 +1,4 @@
-# Kanban-2.0
+# Quadro
 Repositório pro projeto de Digital Business Enablement
 
 ---
