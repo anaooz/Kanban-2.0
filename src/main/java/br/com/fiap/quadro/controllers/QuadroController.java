@@ -3,70 +3,72 @@ package br.com.fiap.quadro.controllers;
 import java.util.*;
 
 import org.slf4j.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.fiap.quadro.models.Quadro;
+import br.com.fiap.quadro.repository.QuadroRepository;
 
 @RestController
+@RequestMapping("/api/quadro")
 public class QuadroController {
 
     Logger log = LoggerFactory.getLogger(QuadroController.class);
 
-    List<Quadro> quadros = new ArrayList<>();
+    @Autowired
+    QuadroRepository repository;
 
-    @GetMapping("/api/quadro")
+    @GetMapping
     public List<Quadro> index(){
-        return quadros;
+        return repository.findAll();
     }
 
-    @PostMapping("/api/quadro")
+    @PostMapping
     public ResponseEntity<Quadro> create(@RequestBody Quadro quadro){
         log.info("cadastrando quadro {}", quadro);
-        quadro.setId(quadros.size() + 1l);
-        quadros.add(quadro);
+        repository.save(quadro);
         return ResponseEntity.status(HttpStatus.CREATED).body(quadro);
     }
 
-    @GetMapping("api/quadro/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Quadro> show(@PathVariable Long id){
         log.info("detalhando quadro {}", id);
-        var quadroEspecificado = quadros.stream().filter(q -> q.getId().equals(id)).findFirst();
+        var quadroEspecificado = repository.findById(id);
 
         if(quadroEspecificado.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.notFound().build();
         }
 
         return ResponseEntity.ok(quadroEspecificado.get());
     }
 
-    @PutMapping("api/quadro/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<Quadro> update(@PathVariable Long id, @RequestBody Quadro quadro){
         log.info("atualizando quadro {}", id);
-        var quadroEspecificado = quadros.stream().filter(q -> q.getId().equals(id)).findFirst();
+        var quadroEspecificado = repository.findById(id);
 
         if(quadroEspecificado.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.notFound().build();
         }
 
-        quadros.remove(quadroEspecificado.get());
         quadro.setId(id);
-        quadros.add(quadro);
+        repository.save(quadro);
 
         return ResponseEntity.ok(quadro);
     }
 
-    @DeleteMapping("api/quadro/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Quadro> destroy(@PathVariable Long id){
         log.info("deletando quadro {}", id);
-        var quadroEspecificado = quadros.stream().filter(q -> q.getId().equals(id)).findFirst();
+        var quadroEspecificado = repository.findById(id);
 
         if(quadroEspecificado.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.noContent().build();
         }
 
-        quadros.remove(quadroEspecificado.get());
+        repository.delete(quadroEspecificado.get());
 
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.noContent().build();
     }
 }

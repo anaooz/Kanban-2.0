@@ -2,13 +2,20 @@ package br.com.fiap.quadro.models;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Quadro {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String titulo; 
     private String colaboradores;
     private String cor;
     private LocalDate data;
+
+    protected Quadro() {}
     
     public Quadro(String titulo, String colaboradores, String cor, LocalDate data) {
         this.titulo = titulo;

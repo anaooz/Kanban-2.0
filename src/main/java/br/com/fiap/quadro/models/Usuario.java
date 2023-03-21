@@ -1,10 +1,17 @@
 package br.com.fiap.quadro.models;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String login;
     private String senha;
+
+    protected Usuario() {}
     
     public Usuario(String login, String senha) {
         this.login = login;
