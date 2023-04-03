@@ -1,6 +1,8 @@
 package br.com.fiap.quadro.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Usuario {
@@ -8,7 +10,12 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
+    @Size(min = 5)
     private String login;
+
+    @NotBlank
+    @Size(min = 7, message = "Escolha uma senha mais forte")
     private String senha;
 
     protected Usuario() {}

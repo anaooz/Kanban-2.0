@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import br.com.fiap.quadro.exceptions.RestNotFoundException;
 import br.com.fiap.quadro.models.Quadro;
 import br.com.fiap.quadro.repository.QuadroRepository;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/quadro")
@@ -25,7 +27,7 @@ public class QuadroController {
     }
 
     @PostMapping
-    public ResponseEntity<Quadro> create(@RequestBody Quadro quadro){
+    public ResponseEntity<Object> create(@RequestBody @Valid Quadro quadro){
         log.info("cadastrando quadro {}", quadro);
         repository.save(quadro);
         return ResponseEntity.status(HttpStatus.CREATED).body(quadro);
@@ -34,23 +36,17 @@ public class QuadroController {
     @GetMapping("{id}")
     public ResponseEntity<Quadro> show(@PathVariable Long id){
         log.info("detalhando quadro {}", id);
-        var quadroEspecificado = repository.findById(id);
+        var quadro = repository.findById(id)
+        .orElseThrow(() -> new RestNotFoundException("Quadro não encontrado"));
 
-        if(quadroEspecificado.isEmpty()){
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(quadroEspecificado.get());
+        return ResponseEntity.ok(quadro);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Quadro> update(@PathVariable Long id, @RequestBody Quadro quadro){
+    public ResponseEntity<Quadro> update(@PathVariable Long id, @RequestBody @Valid Quadro quadro){
         log.info("atualizando quadro {}", id);
-        var quadroEspecificado = repository.findById(id);
-
-        if(quadroEspecificado.isEmpty()){
-            return ResponseEntity.notFound().build();
-        }
+        repository.findById(id)
+        .orElseThrow(() -> new RestNotFoundException("Erro ao atualizar, quadro não encontrado"));
 
         quadro.setId(id);
         repository.save(quadro);
@@ -61,13 +57,10 @@ public class QuadroController {
     @DeleteMapping("{id}")
     public ResponseEntity<Quadro> destroy(@PathVariable Long id){
         log.info("deletando quadro {}", id);
-        var quadroEspecificado = repository.findById(id);
+        var quadro = repository.findById(id)
+        .orElseThrow(() -> new RestNotFoundException("Erro ao apagar, quadro não encontrado"));
 
-        if(quadroEspecificado.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
-
-        repository.delete(quadroEspecificado.get());
+        repository.delete(quadro);
 
         return ResponseEntity.noContent().build();
     }
