@@ -15,8 +15,6 @@ public class Quadro {
     @Size(min = 1, max = 50)
     private String titulo;
 
-    @NotBlank
-    @Size(min = 1, message = "Pelo menos um colaborador")
     private String colaboradores;
 
     @NotBlank
