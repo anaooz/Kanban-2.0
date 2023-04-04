@@ -37,5 +37,4 @@ src/main/java/br/com/fiap/quadro/models/Conta.java
 src/main/java/br/com/fiap/quadro/repository/DespesaRepository.java
 src/main/java/br/com/fiap/quadro/repository/ContaRepository.java
 src/main/java/br/com/fiap/quadro/controllers/ContaController.java
-src/main/java/br/com/fiap/quadro/config/DatabaseSeeder.java
 .gitignore

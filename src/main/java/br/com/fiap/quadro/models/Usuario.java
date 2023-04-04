@@ -1,10 +1,16 @@
 package br.com.fiap.quadro.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Entity
+@Data
+@AllArgsConstructor
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,34 +24,6 @@ public class Usuario {
     @Size(min = 7, message = "Escolha uma senha mais forte")
     private String senha;
 
-    protected Usuario() {}
-    
-    public Usuario(String login, String senha) {
-        this.login = login;
-        this.senha = senha;
-    }
-
-    public Long getId(){
-        return id;
-    }
-
-    public void setId(Long id){
-        this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    @JsonIgnore
+    private boolean ativa = true;
 }
