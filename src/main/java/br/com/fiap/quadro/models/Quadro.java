@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Quadro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +22,6 @@ public class Quadro {
     @NotBlank
     @Size(min = 1, max = 50)
     private String titulo;
-
-    private String colaboradores;
 
     @NotBlank
     private String cor;

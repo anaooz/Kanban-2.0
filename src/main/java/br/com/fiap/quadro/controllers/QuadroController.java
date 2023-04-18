@@ -1,9 +1,8 @@
 package br.com.fiap.quadro.controllers;
 
-import java.util.*;
-
-import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +11,12 @@ import br.com.fiap.quadro.models.Quadro;
 import br.com.fiap.quadro.repository.QuadroRepository;
 import br.com.fiap.quadro.repository.UsuarioRepository;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/api/quadro")
+@Slf4j
 public class QuadroController {
-
-    Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     QuadroRepository quadroRepository;
@@ -26,8 +25,10 @@ public class QuadroController {
     UsuarioRepository usuarioRepository;
 
     @GetMapping
-    public List<Quadro> index(){
-        return quadroRepository.findAll();
+    public Page<Quadro> index(@RequestParam(required = false) String busca, @PageableDefault(size = 8) Pageable pageable){
+        if(busca == null) return quadroRepository.findAll(pageable);
+
+        return quadroRepository.findByTitulo(busca, pageable);
     }
 
     @PostMapping

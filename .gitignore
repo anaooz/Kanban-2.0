@@ -38,3 +38,4 @@ src/main/java/br/com/fiap/quadro/repository/DespesaRepository.java
 src/main/java/br/com/fiap/quadro/repository/ContaRepository.java
 src/main/java/br/com/fiap/quadro/controllers/ContaController.java
 .gitignore
+src/main/java/br/com/fiap/quadro/config/DatabaseSeederAula.java
