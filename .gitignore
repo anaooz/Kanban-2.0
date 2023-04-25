@@ -31,17 +31,14 @@ build/
 
 ### VS Code ###
 .vscode/
-src/main/java/br/com/fiap/quadro/controllers/DespesaController.java
-src/main/java/br/com/fiap/quadro/models/Despesa.java
-src/main/java/br/com/fiap/quadro/models/Conta.java
-src/main/java/br/com/fiap/quadro/repository/DespesaRepository.java
-src/main/java/br/com/fiap/quadro/repository/ContaRepository.java
-src/main/java/br/com/fiap/quadro/controllers/ContaController.java
-.gitignore
 src/main/java/br/com/fiap/quadro/config/DatabaseSeederAula.java
+src/main/java/br/com/fiap/quadro/controllers/ContaAulaController.java
+src/main/java/br/com/fiap/quadro/controllers/DespesaController.java
 src/main/java/br/com/fiap/quadro/controllers/UsuarioAulaController.java
-src/main/java/br/com/fiap/quadro/models/UsuarioAula.java
-src/main/java/br/com/fiap/quadro/repository/UsuarioAulaRepository.java
 src/main/java/br/com/fiap/quadro/models/ContaAula.java
+src/main/java/br/com/fiap/quadro/models/Despesa.java
+src/main/java/br/com/fiap/quadro/models/UsuarioAula.java
 src/main/java/br/com/fiap/quadro/repository/ContaAulaRepository.java
+src/main/java/br/com/fiap/quadro/repository/DespesaRepository.java
 src/main/java/br/com/fiap/quadro/service/AuthenticationServiceAula.java
+src/main/java/br/com/fiap/quadro/repository/UsuarioAulaRepository.java

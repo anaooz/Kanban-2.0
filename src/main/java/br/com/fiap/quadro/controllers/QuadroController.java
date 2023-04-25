@@ -58,14 +58,14 @@ public class QuadroController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Quadro> update(@PathVariable Long id, @RequestBody @Valid Quadro quadro){
+    public EntityModel<Quadro> update(@PathVariable Long id, @RequestBody @Valid Quadro quadro){
         log.info("atualizando quadro {}", id);
         getQuadro(id);
 
         quadro.setId(id);
         quadroRepository.save(quadro);
 
-        return ResponseEntity.ok(quadro);
+        return quadro.toModel();
     }
 
     @DeleteMapping("{id}")

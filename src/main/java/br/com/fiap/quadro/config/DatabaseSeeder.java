@@ -22,9 +22,9 @@ public class DatabaseSeeder implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        Usuario u1 = new Usuario(1L, "mateus@fiap.com", "12345", true);
-        Usuario u2 = new Usuario(2L, "amanda@fiap.com", "00000", true);
-        Usuario u3 = new Usuario(3L, "joao@fiap.com", "01234", false);
+        Usuario u1 = new Usuario(1L, "mateus@fiap.com", true);
+        Usuario u2 = new Usuario(2L, "amanda@fiap.com", true);
+        Usuario u3 = new Usuario(3L, "joao@fiap.com", false);
     
         usuarioRepository.saveAll(List.of(u1, u2, u3));
 
