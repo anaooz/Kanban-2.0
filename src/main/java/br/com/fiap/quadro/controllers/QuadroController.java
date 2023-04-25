@@ -3,6 +3,9 @@ package br.com.fiap.quadro.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,28 +27,34 @@ public class QuadroController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @GetMapping
-    public Page<Quadro> index(@RequestParam(required = false) String busca, @PageableDefault(size = 8) Pageable pageable){
-        if(busca == null) return quadroRepository.findAll(pageable);
+    @Autowired
+    PagedResourcesAssembler<Object> assembler;
 
-        return quadroRepository.findByTitulo(busca, pageable);
+    @GetMapping
+    public PagedModel<EntityModel<Object>> index(@RequestParam(required = false) String busca, @PageableDefault(size = 8) Pageable pageable){
+        Page<Quadro> page =  (busca == null) ? 
+        quadroRepository.findAll(pageable) :
+        quadroRepository.findByTitulo(busca, pageable);
+
+        return assembler.toModel(page.map(Quadro::toModel));
     }
 
     @PostMapping
-    public ResponseEntity<Object> create(@RequestBody @Valid Quadro quadro){
+    public ResponseEntity<EntityModel<Quadro>> create(@RequestBody @Valid Quadro quadro){
         log.info("cadastrando quadro {}", quadro);
         quadroRepository.save(quadro);
-        quadro.setUsuario(usuarioRepository.findById(quadro.getUsuario().getId()).get());
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(quadro);
+        return ResponseEntity
+                .created(quadro.toModel().getRequiredLink("self").toUri())
+                .body(quadro.toModel());
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Quadro> show(@PathVariable Long id){
+    public EntityModel<Quadro> show(@PathVariable Long id){
         log.info("detalhando quadro {}", id);
         getQuadro(id);
 
-        return ResponseEntity.ok(getQuadro(id));
+        return getQuadro(id).toModel();
     }
 
     @PutMapping("{id}")

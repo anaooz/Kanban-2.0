@@ -1,7 +1,5 @@
 package br.com.fiap.quadro.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -24,6 +22,5 @@ public class Usuario {
     @Size(min = 7, message = "Escolha uma senha mais forte")
     private String senha;
 
-    @JsonIgnore
     private boolean ativa = true;
 }
