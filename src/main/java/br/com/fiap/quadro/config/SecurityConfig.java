@@ -24,7 +24,7 @@ public class SecurityConfig {
                     .authorizeHttpRequests()
                         .requestMatchers(HttpMethod.POST, "/api/registrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/login").permitAll()
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                     .and()
                     .csrf().disable()
                     .formLogin().disable()
