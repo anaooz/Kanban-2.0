@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+import br.com.fiap.quadro.models.Conta;
 import br.com.fiap.quadro.models.Quadro;
 import br.com.fiap.quadro.models.Usuario;
+import br.com.fiap.quadro.repository.ContaRepository;
 import br.com.fiap.quadro.repository.QuadroRepository;
 import br.com.fiap.quadro.repository.UsuarioRepository;
 @Configuration
@@ -19,6 +21,9 @@ public class DatabaseSeeder implements CommandLineRunner{
 
     @Autowired
     QuadroRepository quadroRepository;
+
+    @Autowired
+    ContaRepository contaRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -34,6 +39,14 @@ public class DatabaseSeeder implements CommandLineRunner{
             Quadro.builder().titulo("exemplo 3").cor("verde").data(LocalDate.now()).usuario(u2).build(),
             Quadro.builder().titulo("exemplo 50").cor("rosa").data(LocalDate.now()).usuario(u3).build(),
             Quadro.builder().titulo("exemplo 99").cor("branco").data(LocalDate.now()).usuario(u1).build(),
-            Quadro.builder().titulo("exemplo 1000").cor("roxo").data(LocalDate.now()).usuario(u3).build()));
+            Quadro.builder().titulo("exemplo 1000").cor("roxo").data(LocalDate.now()).usuario(u3).build()
+            ));
+        
+        contaRepository.save(Conta.builder()
+        .nome("Mateus")
+        .email("mateus@fiap.com.br")
+        .senha("170703")
+        .build()
+        );
     }
 }

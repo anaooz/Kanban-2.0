@@ -2,10 +2,8 @@ package br.com.fiap.quadro.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.PagedModel;
+import org.springframework.data.web.*;
+import org.springframework.hateoas.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 

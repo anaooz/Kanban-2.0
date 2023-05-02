@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import br.com.fiap.quadro.models.Conta;
 import br.com.fiap.quadro.models.Credencial;
 import br.com.fiap.quadro.repository.ContaRepository;
+import br.com.fiap.quadro.service.TokenJwtService;
 import jakarta.validation.Valid;
 
 public class ContaController {
@@ -23,6 +24,9 @@ public class ContaController {
     @Autowired
     PasswordEncoder encoder;
 
+    @Autowired
+    TokenJwtService tokenJwtService;
+
     @PostMapping("/api/registrar")
     public ResponseEntity<Conta> registrar(@RequestBody @Valid Conta conta){
         conta.setSenha(encoder.encode(conta.getSenha()));
@@ -34,7 +38,8 @@ public class ContaController {
     @PostMapping("/api/login")
     public ResponseEntity<Object> login(@RequestBody @Valid Credencial credencial){
         manager.authenticate(credencial.toAuthentication());
+        var token = tokenJwtService.generateToken(credencial);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(token);
     }
 }
