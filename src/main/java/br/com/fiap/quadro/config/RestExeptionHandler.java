@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ public class RestExeptionHandler {
     Logger log = LoggerFactory.getLogger(getClass());
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<List<RestValidationError>> handler(MethodArgumentNotValidException e){
         log.error("Erro de validação");
         List<RestValidationError> errors = new ArrayList<>();
